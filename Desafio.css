@@ -1,0 +1,85 @@
+*{  
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.gallery{
+    background-color: white;
+    width: 60rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5em;
+    padding: 0.5em;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+}
+
+.image{
+    flex-basis: calc(25% - 0.5em);
+    position: relative;
+    overflow: hidden;
+}
+
+.image a{
+    text-decoration: none;
+}
+.gallery p{
+    background-color: rgb(0, 0, 0, 0.7);
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    letter-spacing: 2px;
+    font-size: 0.75em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.2;
+    transform: translateY(100%);
+    transition: all 0.2s ease-in-out;
+}
+
+.image img{
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.image:hover img{
+    transform: scale(1.2);
+}
+
+.image:hover p{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.image::after{
+    content: "";
+    background-color: white;
+    opacity: 0.5;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image:hover::after{
+    opacity: 0;
+}
